@@ -8,12 +8,12 @@
                     <img src="../../../assets/images/a.png" class="img-fluid mx-auto" style="width: 50px;"
                         alt="Your Image">
                     <h1 class="text-center">Login Here.</h1>
-                    <!-- {{user | json }} -->
+                    <!-- {{ loginData | json }} -->
                     <form (ngSubmit)="login()" class="mr10 ml10">
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>User Name</mat-label>
                             <input 
-                            [(ngModel)]="user.username"
+                            [(ngModel)]="loginData.username"
                             name="username"
                             matInput placeholder="username" required>
                             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -23,7 +23,7 @@
                           <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Enter your password</mat-label>
                             <input 
-                            [(ngModel)]="user.password"
+                            [(ngModel)]="loginData.password"
                             name="password"
                             matInput [type]="hide ? 'password' : 'text'" required>
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">

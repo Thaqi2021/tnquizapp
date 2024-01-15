@@ -19,6 +19,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptor, AuthInterceptorProvider } from './service/auth.Interceptor';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
   ],
   providers: [
-    provideClientHydration()
+    // provideClientHydration(),
+    AuthInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

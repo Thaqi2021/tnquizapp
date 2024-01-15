@@ -1,14 +1,23 @@
-<mat-toolbar>
+<mat-toolbar color="accent">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
+      <mat-icon>menu_book</mat-icon>
     </button>
-    <span>My App</span>
+    <span>Amphenol</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
+    @if (!isLoggedIn) {
+    <a  [routerLink]="['/login']" mat-button class="example-icon favorite-icon "   >
+      <!-- <mat-icon>login</mat-icon> -->
+      Login
+    </a>
+    <a  [routerLink]="['/signup']" mat-button class="example-icon" >
+      <!-- <mat-icon>share</mat-icon> -->
+      Register
+    </a>
+  }
+  @else if(isLoggedIn){
+    <a (click)="logout()" mat-button class="example-icon" >{{user}}</a>
+
+    <a (click)="logout()" mat-button class="example-icon" >Logout</a>
+  }
   </mat-toolbar>
   

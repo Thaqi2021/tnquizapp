@@ -3,10 +3,11 @@
       <div class="row d-flex justify-content-center" style="margin-top: 20px;"> <!-- Center the content horizontally -->
         <div class="col-md-6">
           <div class="container text-center">
+            <mat-card>
             <img src="../../../assets/images/a.png" class="img-fluid mx-auto" style="width: 50px;" alt="Your Image">
             <h1 class="text-center">Register Here.</h1>
             <!-- {{user | json }} -->
-            <form (ngSubmit)="saveUser()">
+            <form (ngSubmit)="saveUser()" class="mr10 ml10">
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>User Name</mat-label>
               <input 
@@ -68,6 +69,7 @@
             <button mat-raised-button color="primary" type="submit">Register</button>
             <button style="margin-left: 20px;" mat-raised-button color="accent">Reset</button>
           </form>
+          </mat-card>
           </div>
         </div>
       </div>
