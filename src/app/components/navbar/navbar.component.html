@@ -14,8 +14,8 @@
       Register
     </a>
   }
-  @else if(isLoggedIn){
-    <a (click)="logout()" mat-button class="example-icon" >{{user}}</a>
+  @else if(isLoggedIn && user){
+    <a routerLink="/admin/profile" mat-button class="example-icon" >{{user.username}}</a>
 
     <a (click)="logout()" mat-button class="example-icon" >Logout</a>
   }

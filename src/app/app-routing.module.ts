@@ -7,13 +7,28 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './service/admin.guard';
 import { NormalGuard } from './service/normal.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent,pathMatch:'full'},
   {path:'login',component:LoginComponent,pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch:'full'},
-  {path:'admin',component:DashboardComponent,pathMatch:'full',canActivate:[AdminGuard]},
   {path:'user',component:UserDashboardComponent,pathMatch:'full',canActivate:[NormalGuard]},
+  {path:'admin',component:DashboardComponent,
+  // pathMatch:'full',
+  canActivate:[AdminGuard],
+  children:[
+    {
+    path:'profile',
+    component:ProfileComponent
+    },
+    {
+      path:'',
+      component:WelcomeComponent
+      }
+  ],
+ },
 
   
   ];

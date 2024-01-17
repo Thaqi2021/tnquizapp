@@ -34,11 +34,15 @@ export class LoginComponent {
           console.log(user);
           if(this.loginService.getUserRole()=='ADMIN'){
               // window.location.href='/admin'
-              this.route.navigate(['admin'])
+              this.route.navigate(['admin']);
+              this.loginService.loginSubject.next(true);
+
           }
           else  if(this.loginService.getUserRole()=='NORMAL'){
             // window.location.href='/user'
-            this.route.navigate(['user'])
+            this.route.navigate(['user']);
+            this.loginService.loginSubject.next(true);
+
 
           }
           else{

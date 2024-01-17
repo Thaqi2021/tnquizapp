@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { baseURL } from './baseURL';
-import { retry } from 'rxjs';
+import { Subject, retry } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  public loginSubject = new Subject<boolean>();
+
   constructor(private http:HttpClient) { }
 
   public generateTokens(loginData:any){
@@ -22,6 +25,8 @@ export class LoginService {
   }
 
   public isLoggedIn(){
+    if (typeof localStorage !== 'undefined') {
+
     let tokenstr=localStorage.getItem('token')
     if(tokenstr ==undefined || tokenstr == ''|| tokenstr==null){
       return false;
@@ -29,6 +34,8 @@ export class LoginService {
     else{
       return true;
     }
+  }
+  return true;
   }
 
 
@@ -48,6 +55,8 @@ export class LoginService {
   }
 
   public getUser(){
+    if (typeof localStorage !== 'undefined') {
+
     let userStr = localStorage.getItem("user")
     if(userStr!=null){
       return JSON.parse(userStr);
@@ -57,9 +66,14 @@ export class LoginService {
       return null;
     }
   }
+  return null;
+  }
 
   public getUserRole(){
     let User = this.getUser();
+    if(User !=null)
     return User.authorities[0].authority
+  else
+    return null;
   }
 }
