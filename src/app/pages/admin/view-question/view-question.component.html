@@ -1,0 +1,31 @@
+<h1 class="ml20">Question of {{quizname}}</h1>
+<button mat-raised-button color="accent" [routerLink]="['/admin/add-question/'+qid+'/'+quizname]">Add Question</button>
+
+<div class="bootstarp-wrapper">
+    <mat-card *ngFor="let q of questions;let i =index" class="mt20">
+        <mat-card-header>    
+          <h3>Q{{i+1}}) {{q.content}}</h3>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col">
+                    <p><b>A)</b> {{q.option1}}</p>
+                </div>
+                <div class="col">
+                    <p><b>B)</b> {{q.option2}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><b>C)</b> {{q.option3}}</p>
+                </div>
+                <div class="col">
+                    <p><b>D)</b> {{q.option4}}</p>     
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+                  <p><b>Answer:-</b> {{q.answer}}</p>
+        </mat-card-content>
+
+    </mat-card>
+</div>

@@ -11,10 +11,10 @@
               <p>{{q.description}}</p>
     </mat-card-content>
     <mat-card-actions >
-      <button mat-raised-button color="accent">Questions</button>
+      <button mat-raised-button color="accent" [routerLink]="['/admin/view-question/'+q.qid+'/'+q.title]">Questions</button>
       <button mat-stroked-button color="accent" class="ml20">Max Marks :{{q.maxMark}} </button>
       <button mat-stroked-button color="accent" class="ml20">Question : {{q.noOfQuestion}} </button>
-      <button mat-raised-button color="accent" [routerLink]="['/admin/add-quiz/'+q.qid]">Update</button>
+      <button mat-raised-button color="accent" class="ml20" [routerLink]="['/admin/add-quiz/'+q.qid]">Update</button>
 
       <button mat-raised-button color="accent" (click)="deleteQuiz(q.qid)" class="ml20">Delete</button>
 

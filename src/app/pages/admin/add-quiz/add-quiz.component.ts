@@ -13,6 +13,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './add-quiz.component.scss'
 })
 export class AddQuizComponent implements OnInit {
+  moduleName='Add';
+
   public quiz={
     qid:null,
     title:'',
@@ -32,12 +34,18 @@ export class AddQuizComponent implements OnInit {
     private activeRoute:ActivatedRoute
     ){}
   ngOnInit(): void {
-    this.qid= this.activeRoute.snapshot.params['qid'];
-    alert(this.qid);
+
       this.categoryService.getCategories().subscribe((res:any)=>{
           this.categeries=res;
       },
       )
+      this.qid= this.activeRoute.snapshot.params['qid'];
+      if(this.qid!=undefined||this.qid!=null){
+        this.quizService.getQuizById(this.qid).subscribe((res:any)=>{
+          this.quiz=res;
+        })
+        this.moduleName='Update'
+      }
   }
   addQuiz(){
     if(this.quiz.title.trim()==''|| this.quiz.title.trim()==null){
@@ -53,7 +61,11 @@ export class AddQuizComponent implements OnInit {
       return;
     }
     this.quizService.addQiuz(this.quiz).subscribe((res:any)=>{
+      if(this.moduleName=='Update'){
+        Swal.fire('Successfully Updated','your saved Id:'+res.qid,'success')
+      }else{
       Swal.fire('Successfully','your saved Id:'+res.qid,'success')
+      }
     })
   }
 

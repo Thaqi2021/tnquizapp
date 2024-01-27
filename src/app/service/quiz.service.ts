@@ -21,4 +21,8 @@ export class QuizService {
     return this.http.delete(`${baseURL}/quiz/${qid}`);
   }
 
+  public getQuizById(qid:number) {
+    return this.http.get(`${baseURL}/quiz/${qid}`);
+  }
+
 }
