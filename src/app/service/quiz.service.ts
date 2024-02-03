@@ -25,4 +25,8 @@ export class QuizService {
     return this.http.get(`${baseURL}/quiz/${qid}`);
   }
 
+  public getCategoryOfQuiz(cid:number){
+    return this.http.get(`${baseURL}/quiz/category/${cid}`);
+  }
+
 }

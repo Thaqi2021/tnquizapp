@@ -34,6 +34,9 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import {MatSelectModule} from '@angular/material/select';
 import { ViewQuestionComponent } from './pages/admin/view-question/view-question.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { SidebarComponent as UserSidebarComponent } from './pages/user/sidebar/sidebar.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
     ViewQuizzesComponent,
     AddQuizComponent,
     ViewQuestionComponent,
-    AddQuestionComponent
+    AddQuestionComponent,
+    UserSidebarComponent,
+    LoadQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,7 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
     MatToolbarModule,
     MatListModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [
     // provideClientHydration(),

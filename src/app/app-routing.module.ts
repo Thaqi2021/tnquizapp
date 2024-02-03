@@ -15,12 +15,21 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { ViewQuestionComponent } from './pages/admin/view-question/view-question.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent,pathMatch:'full'},
   {path:'login',component:LoginComponent,pathMatch:'full'},
   {path:'home',component:HomeComponent,pathMatch:'full'},
-  {path:'user',component:UserDashboardComponent,pathMatch:'full',canActivate:[NormalGuard]},
+  {path:'user',component:UserDashboardComponent,
+  // pathMatch:'full',
+  canActivate:[NormalGuard],
+  children:[
+    {
+    path:':cid',
+    component:LoadQuizComponent
+    },]
+},
   {path:'admin',component:DashboardComponent,
   // pathMatch:'full',
   canActivate:[AdminGuard],

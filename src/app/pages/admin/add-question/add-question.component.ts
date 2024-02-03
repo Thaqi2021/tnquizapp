@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../../../model/Question';
 import { QuestionService } from '../../../service/question.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-add-question',
@@ -11,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './add-question.component.scss'
 })
 export class AddQuestionComponent implements OnInit{
+
   constructor(public activedRoute:ActivatedRoute,private matSnackbar:MatSnackBar,private questionService:QuestionService){}
   qid=null;
   quizname='';
@@ -27,6 +29,7 @@ export class AddQuestionComponent implements OnInit{
       qid:null,
      },
   };
+  public isBrowser!: boolean;
   ngOnInit(): void {
     this.qid=this.activedRoute.snapshot.params['qid'];
     this.quizname=this.activedRoute.snapshot.params['quizname'];

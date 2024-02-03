@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>Categories</div>
+        <button mat-list-item routerLink="/user"><mat-icon matListItemIcon>home</mat-icon> <span>Home</span></button>
+        <button mat-list-item routerLink="/user/profile"><mat-icon matListItemIcon>account_circle</mat-icon> Profile</button>
+        <button mat-list-item routerLink="/user/0"><mat-icon matListItemIcon>quiz</mat-icon> All Quiz</button>
+
+        @for(category of categories;track category){
+            <button mat-list-item [routerLink]="['/user/'+category.cid]"><mat-icon matListItemIcon>quiz</mat-icon> {{category.title}}</button>
+        }
+
+        <button mat-list-item routerLink="/admin/profile"><mat-icon matListItemIcon>logout</mat-icon> Logout</button>
+
+    </mat-action-list>
+</mat-card>
