@@ -27,4 +27,8 @@ export class QuestionService {
     return this.http.get(`${baseURL}/question/quiz/question/${qid}`);
   }
 
+  public getQuestionOfQuizForTest(qid:number) {
+    return this.http.get(`${baseURL}/question/quiz/${qid}`);
+  }
+
 }

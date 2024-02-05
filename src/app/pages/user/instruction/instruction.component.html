@@ -1,0 +1,43 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Read Instruction Carefully
+                </mat-card-title>
+                <mat-card-subtitle>one more step to go</mat-card-subtitle>
+
+            </mat-card-header>
+            <mat-card-content class="ml20">
+                <mat-divider></mat-divider>
+                <h1 style="margin-bottom: 0px;">{{quiz.title}}</h1>
+                <p>{{quiz.description}}</p>
+                <mat-divider></mat-divider>
+                <h1>Important Instructions</h1>
+                <ul>
+                    <li>This Quiz is only for practice purpose. </li>
+                    <li>You have to submit the quiz with <b>{{quiz.noOfQuestion *2}} Mintues</b>  </li>
+                    <li>You can attempt the quiz any No of time .</li>
+                    <li>There are <b>{{quiz.noOfQuestion}} question </b> in this Quiz.</li>
+                    <li>Each Question carries <b>{{quiz.maxMark/quiz.noOfQuestion}} Marks </b> No Nagative mark for Wrong Answer</li>
+                    <li>All Question is a MCQ Type.</li>
+                </ul>
+                <mat-divider></mat-divider>
+                <h1>Attempting Quiz</h1>
+                <ul>
+                    <li>Click <b>Start Test</b> button to start the quiz </li>
+                    <li>The time will start the moment you click the start button </li>
+                    <li>You can resume the quiz,if interrupted due to any Network Issue.</li>
+                    <li>Click on Next button to move next question</li>
+                    <li>Click on <b>Submit Test buton on completion </b> of Quiz</li>
+                    <li>Report of test is automayically generated in the form of PDF.</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-actions class="justify-content-center">
+                <button mat-raised-button color="primary" (click)="startTest()">Start Test</button>
+            </mat-card-actions>
+
+        </mat-card>
+    </div>
+</div>

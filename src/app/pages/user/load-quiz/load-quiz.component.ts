@@ -24,11 +24,11 @@ export class LoadQuizComponent implements OnInit {
   updateQuiz(){
 
     if(this.cid==0){
-      this.qiuzService.getquizes().subscribe((data:any)=>{
+      this.qiuzService.getActiveQuiz().subscribe((data:any)=>{
           this.quizzes=data;
       })
       }else{
-        this.qiuzService.getCategoryOfQuiz(this.cid).subscribe((data:any)=>{
+        this.qiuzService.getCategoryOfActiveQuiz(this.cid).subscribe((data:any)=>{
             this.quizzes=data;
         })
       }

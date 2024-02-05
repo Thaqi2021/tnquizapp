@@ -16,6 +16,8 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { ViewQuestionComponent } from './pages/admin/view-question/view-question.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { InstructionComponent } from './pages/user/instruction/instruction.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent,pathMatch:'full'},
@@ -28,8 +30,19 @@ const routes: Routes = [
     {
     path:':cid',
     component:LoadQuizComponent
-    },]
+    },
+    {
+      path:'instruction/:qid',
+      component: InstructionComponent
+      },
+     
+  ]
 },
+{
+  path:'start/:qid',
+  component: StartComponent,
+  canActivate:[NormalGuard],
+  },
   {path:'admin',component:DashboardComponent,
   // pathMatch:'full',
   canActivate:[AdminGuard],

@@ -29,4 +29,12 @@ export class QuizService {
     return this.http.get(`${baseURL}/quiz/category/${cid}`);
   }
 
+  public getActiveQuiz() {
+    return this.http.get(`${baseURL}/quiz/active`);
+  }
+
+  public getCategoryOfActiveQuiz(cid:number){
+    return this.http.get(`${baseURL}/quiz/category/active/${cid}`);
+  }
+
 }
