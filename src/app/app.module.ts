@@ -12,6 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -81,6 +82,7 @@ import { StartComponent } from './pages/user/start/start.component';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     // provideClientHydration(),
