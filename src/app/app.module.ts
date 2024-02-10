@@ -39,6 +39,7 @@ import { SidebarComponent as UserSidebarComponent } from './pages/user/sidebar/s
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionComponent } from './pages/user/instruction/instruction.component';
 import { StartComponent } from './pages/user/start/start.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 
 @NgModule({
@@ -82,7 +83,11 @@ import { StartComponent } from './pages/user/start/start.component';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    })
   ],
   providers: [
     // provideClientHydration(),
