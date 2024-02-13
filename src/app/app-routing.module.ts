@@ -81,6 +81,10 @@ const routes: Routes = [
         component:ViewQuestionComponent
       },
       {
+        path:'add-question/:qid/:quizname',
+        component:AddQuestionComponent
+      },
+      {
         path:'add-question/:qid/:quizname/:quesid',
         component:AddQuestionComponent
       }

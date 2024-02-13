@@ -23,7 +23,7 @@ export class StartComponent implements OnInit {
   isSubmit=false;
   timer:any;
   ngOnInit(): void {
-    // document.documentElement.requestFullscreen().catch((err) => console.error(err));
+    document.documentElement.requestFullscreen().catch((err) => console.error(err));
 
     this.preventBackButton();
     this.qid = this.activeRoue.snapshot.params['qid'];
