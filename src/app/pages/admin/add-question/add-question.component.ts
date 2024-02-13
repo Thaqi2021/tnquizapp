@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../../../model/Question';
 import { QuestionService } from '../../../service/question.service';
 import Swal from 'sweetalert2';
@@ -13,10 +13,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AddQuestionComponent implements OnInit{
 
-  constructor(public activedRoute:ActivatedRoute,private matSnackbar:MatSnackBar,private questionService:QuestionService){}
+  constructor(public activedRoute:ActivatedRoute,
+    private matSnackbar:MatSnackBar,
+    private questionService:QuestionService,
+    private router:Router
+    ){}
   qid=null;
   quizname='';
   answer='';
+  quesId=null;
+  addorUpdate="Add";
   question={
     content :'',
     image :'',
@@ -33,12 +39,24 @@ export class AddQuestionComponent implements OnInit{
   ngOnInit(): void {
     this.qid=this.activedRoute.snapshot.params['qid'];
     this.quizname=this.activedRoute.snapshot.params['quizname'];
+    this.quesId= this.activedRoute.snapshot.params['quesid'];
+    if(this.quesId!=null){
+      this.updateQuestion();
+    }
     // if(this.qid!=null)
     //   this.questionService.getQuestionOfQuiz(this.qid).subscribe((res:any)=>{
     //     console.log(res);
     //     this.questions=res;
     //   })
     
+  }
+  updateQuestion(){
+    if(this.quesId!=null)
+    this.questionService.getQuestionById(this.quesId).subscribe((res:any)=>{
+      console.log(res);
+      this.addorUpdate="Update";
+      this.question=res;
+    })
   }
   addQuestion(){
     if(this.question.content.trim()==''||this.question.content==null){
@@ -79,7 +97,12 @@ export class AddQuestionComponent implements OnInit{
     }
     this.question.quiz.qid=this.qid;
     this.questionService.addQuestion(this.question).subscribe((res:any)=>{
-      Swal.fire('Successfully','Your Question added.Id'+res.quesId,'success');
+      if(this.addorUpdate=="Update"){
+        Swal.fire('Successfully','Your Question Updated.Id:-'+res.quesId,'success');
+      }else{
+      Swal.fire('Successfully','Your Question added.Id:-'+res.quesId,'success');
+      }
+      this.router.navigate(['/admin/view-question/'+this.qid+'/'+this.quizname]);
     })
 
   }

@@ -18,7 +18,7 @@ export class StartComponent implements OnInit {
   questions!:Question[];
 
   correctAns=0;
-  markGot=0;
+  markGot:String="0.0";
   attempedQuestion=0;
   isSubmit=false;
   timer:any;
@@ -81,19 +81,32 @@ export class StartComponent implements OnInit {
   }
   evalQuiz(){
     this.isSubmit=true;
-    let singleMark=this.questions[0].quiz.maxMark/this.questions.length;
+    // let singleMark=this.questions[0].quiz.maxMark/this.questions.length;
 
-      this.questions.forEach(q=>{
-        if(q.answer==q.givenAnswer){
-          this.correctAns++;
-          this.markGot+=singleMark;
-        }
-        if(q.givenAnswer.trim()!=''){
-          this.attempedQuestion++;
+      // this.questions.forEach(q=>{
+      //   if(q.answer==q.givenAnswer){
+      //     this.correctAns++;
+      //     this.markGot+=singleMark;
+      //   }
+      //   if(q.givenAnswer.trim()!=''){
+      //     this.attempedQuestion++;
+      //   }
+      // })
+      this.questionService.getTheReslt(this.questions).subscribe((data:any)=>{
+        if(data=="No"){
+          console.log("No Evaluation");
+        }else{
+        this.correctAns=data.correctAns;
+        this.markGot= Number(data.markGot).toFixed(2);
+        this.attempedQuestion=data.attempedQuestion;
         }
       })
       console.log("correct Answer",this.correctAns)
       console.log("Marks Got",this.markGot)
       console.log("Attempted Question",this.attempedQuestion)
+  }
+
+  printPage(){
+    window.print();
   }
 }

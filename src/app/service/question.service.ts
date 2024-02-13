@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseURL } from './baseURL';
+import { Question } from '../model/Question';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +32,9 @@ export class QuestionService {
     return this.http.get(`${baseURL}/question/quiz/${qid}`);
   }
 
+  public getTheReslt(questions:Question[]) {
+    return this.http.post(`${baseURL}/question/eval-answer`,questions);
+  }
+
+ 
 }
