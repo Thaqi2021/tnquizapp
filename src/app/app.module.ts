@@ -40,6 +40,7 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionComponent } from './pages/user/instruction/instruction.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatSidenavModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,

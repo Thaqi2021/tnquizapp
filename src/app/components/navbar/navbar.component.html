@@ -1,8 +1,8 @@
 <mat-toolbar color="accent">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button (click)="toggleSidenav()" class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu_book</mat-icon>
     </button>
-    <span>Amphenol</span>
+    <span >Amphenol</span>
     <span class="example-spacer"></span>
     @if (!isLoggedIn) {
     <a  [routerLink]="['/login']" mat-button class="example-icon favorite-icon "   >

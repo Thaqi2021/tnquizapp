@@ -2,13 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { baseURL } from './baseURL';
 import { Subject, retry } from 'rxjs';
+import { MatSidenav } from '@angular/material/sidenav';
+declare const $: any;
+
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class LoginService {
 
   public loginSubject = new Subject<boolean>();
-
+  private sidenav!: MatSidenav;
   constructor(private http:HttpClient) { }
 
   public generateTokens(loginData:any){
@@ -76,4 +82,29 @@ export class LoginService {
   else
     return null;
   }
+
+
+  setSidenav(sidenav: MatSidenav) {
+    this.sidenav = sidenav;
+    if(this.isMobileMenu()){
+      this.sidenav.mode="over";
+    }
+  }
+
+  // Method to toggle the sidenav
+  toggleSidenav() {
+    if (this.sidenav) {
+      if(this.isMobileMenu()){
+        this.sidenav.mode="over";
+      }
+      this.sidenav.toggle();
+    }
+  }
+
+  isMobileMenu() {
+    if ($(window).width() > 991) {
+      return false;
+    }
+    return true;
+  };
 }

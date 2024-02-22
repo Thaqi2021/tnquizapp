@@ -1,7 +1,7 @@
-<div class="bootstrap-wrapper">
+<!-- <div class="bootstrap-wrapper">
     <div class="container-fluid">
         <div class="row ">
-            <!-- Center the content horizontally -->
+           
             <div class="col-md-2">
                 <app-sidebar-user></app-sidebar-user>
             </div>
@@ -11,4 +11,15 @@
 
         </div>
     </div>
-</div>
+</div> -->
+<mat-drawer-container autosize>
+    <mat-drawer #sidenav  mode="side" opened="true" >
+        <app-sidebar-user></app-sidebar-user>     
+    </mat-drawer>
+    <mat-drawer-content >
+      <div style="min-height: 600px; margin-left: 5px;">
+          <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  
+  </mat-drawer-container>
