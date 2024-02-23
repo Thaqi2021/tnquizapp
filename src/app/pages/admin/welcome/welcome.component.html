@@ -1,1 +1,75 @@
-<p>welcome works!</p>
+
+<br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Available Quiz</h6>
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i>&nbsp;<span>86</span></h2>
+                    <p class="m-b-0">Categories<span class="f-right">30</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Inprogress</h6>
+                    <h2 class="text-right"><i class="fa fa-rocket f-left"></i>&nbsp;<span>44</span></h2>
+                    <p class="m-b-0">Inprogress<span class="f-right">41</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-yellow order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Retest</h6>
+                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i>&nbsp;<span>16</span></h2>
+                    <p class="m-b-0">Retest<span class="f-right">31</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xl-3">
+            <div class="card bg-c-pink order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">Passed</h6>
+                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i>&nbsp;<span>86</span></h2>
+                    <p class="m-b-0">Passed<span class="f-right">51</span></p>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<div style="display: block;">
+    <div class="row">
+
+        <div class="col">
+            <mat-card >
+                <mat-card-header>
+                    <mat-card-title>Employee </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                        [legend]="barChartLegend"></canvas>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col">
+            <mat-card >
+                <mat-card-header>
+                    <mat-card-title>Employee</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <canvas baseChart class="chart" [data]="polarAreaChartData" [legend]="polarAreaLegend"
+                        [type]="polarAreaChartType">
+                    </canvas>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

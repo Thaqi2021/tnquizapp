@@ -41,6 +41,7 @@ import { InstructionComponent } from './pages/user/instruction/instruction.compo
 import { StartComponent } from './pages/user/start/start.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,
-    })
+    }),
+    NgChartsModule
   ],
   providers: [
     // provideClientHydration(),
